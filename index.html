@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenline Ltd | Circular Construction Solutions</title>
+
+  <style>
+    :root {
+      --green-dark: #1b5e20;
+      --green-main: #2e7d32;
+      --green-light: #e8f5e9;
+      --gray: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f9f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--green-dark);
+      padding: 15px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo-area img {
+  height: 60px;   
+  width: auto;
+  display: block;
+  padding: 8px 12px;
+    }
+
+
+    .logo-area img {
+      height: 40px;
+      width: auto;
+    }
+
+    .logo-area span {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    nav ul li a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.7rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(27,94,32,0.75), rgba(27,94,32,0.75)),
+        url("background.jpeg"); /* 🔁 replace with your image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 8%;
+      color: #fff;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    header h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 8%;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      color: var(--green-dark);
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      margin-bottom: 15px;
+    }
+
+    .section-sub {
+      color: var(--gray);
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    /* GRID / CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card h3 {
+      color: var(--green-main);
+      margin-bottom: 10px;
+    }
+
+    /* PROCESS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .step {
+      background: var(--green-light);
+      padding: 25px;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--green-main);
+      color: #fff;
+      text-align: center;
+      padding: 70px 8%;
+    }
+
+    .cta button {
+      margin-top: 20px;
+      padding: 14px 30px;
+      border: none;
+      background: #fff;
+      color: var(--green-main);
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* CONTACT */
+    form {
+      max-width: 600px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      background: var(--green-main);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-dark);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 65px;
+        right: 8%;
+        background: var(--green-dark);
+        flex-direction: column;
+        width: 220px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 15px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-area span {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-area">
+    <img src="logo (1).png" alt="Greenline Ltd Logo">
+    <span>Greenline Ltd</span>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="nav-links">
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#process" onclick="closeMenu()">Process</a></li>
+    <li><a href="#impact" onclick="closeMenu()">Impact</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <div class="hero-content">
+    <h1>Closing the Loop on Construction Waste</h1>
+    <p>
+      Transforming construction debris into sustainable,
+      high-quality building materials for a greener future.
+    </p>
+  </div>
+</header>
+
+<section id="about">
+  <h2 class="section-title">Who We Are</h2>
+  <p class="section-sub">
+    Greenline Ltd is a circular economy leader dedicated to reducing the
+    environmental footprint of the construction industry.
+  </p>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <div class="grid">
+    <div class="card"><h3>On-Site Sanitation</h3><p>Safe, compliant sanitation solutions.</p></div>
+    <div class="card"><h3>Waste Recovery</h3><p>Efficient debris collection and sorting.</p></div>
+    <div class="card"><h3>Sustainable Materials</h3><p>Eco-friendly building products.</p></div>
+  </div>
+</section>
+
+<section id="process">
+  <h2 class="section-title">How It Works</h2>
+  <div class="steps">
+    <div class="step">1. Collect construction waste</div>
+    <div class="step">2. Sort & process materials</div>
+    <div class="step">3. Manufacture sustainable products</div>
+    <div class="step">4. Supply back to the market</div>
+  </div>
+</section>
+
+<section id="impact">
+  <h2 class="section-title">Our Impact</h2>
+  <div class="grid">
+    <div class="card"><h3>85% Waste Reused</h3></div>
+    <div class="card"><h3>Lower Carbon Emissions</h3></div>
+    <div class="card"><h3>Supporting Green Infrastructure</h3></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to Build Sustainably?</h2>
+  <p>Partner with Greenline Ltd today.</p>
+  <button onclick="location.href='#contact'">Get in Touch</button>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="4" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Greenline Ltd. All Rights Reserved.
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("show");
+  }
+
+  function closeMenu() {
+    document.getElementById("nav-links").classList.remove("show");
+  }
+
+  // Scroll reveal animation
+  const cards = document.querySelectorAll(".card");
+  window.addEventListener("scroll", () => {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        card.classList.add("show");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
